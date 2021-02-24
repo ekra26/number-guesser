@@ -46,7 +46,7 @@ header {
   display: flex;
   justify-content: space-around;
   align-items: flex-start;
-  margin-bottom: 60px;
+  margin-bottom: 20px;
 }
 
 .guess-title {
@@ -77,7 +77,7 @@ header {
 }
 
 .computer-guess {
-  background-color: #ececec;
+  background-color: #87CEEB;
 }
 
 #computer-guess {
@@ -105,13 +105,13 @@ header {
 }
 
 .number-control {
-  border: solid 1px #4c7ef3;
+  border: solid 1px #87CEEB;
   display: inline-block;
   width: 45px;
   height: 35px;
   font-size: 24px;
   font-weight: 700;
-  color: #4c7ef3;
+  color: #87CEEB;
   cursor: pointer;
 }
 
@@ -137,7 +137,7 @@ header {
 }
 
 .button {
-  background-color: #4c7ef3;
+  background-color: #87CEEB;
   color: #fff;
   cursor: pointer;
 }
