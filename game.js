@@ -11,17 +11,32 @@ const targetNumberDisplay = document.getElementById('target-number');
 const computerWinsDisplay = document.getElementById('computer-wins');
 
 const guessButton = document.getElementById('guess');
-const nextRoundButton = document.getElementById('next-round')
+const nextRoundButton = document.getElementById('next-round');
 
+//start game rounds
 guessButton.addEventListener('click', () => {
   // Generate the target value
   target = generateTarget();
   // Retrieve the player's guess
-  const currentHumanGuess = humanGuessInput.value;
+  let currentHumanGuess = humanGuessInput.value;
   // Make a random 'computer guess'
-  const computerGuess = Math.floor(Math.random() * 10);
+  let computerGuess = Math.floor(Math.random() * 10);
 
-  // Display the computer guess and the target
+  //Check player within range and continue game
+  if (userGuessRange(currentHumanGuess) == undefined){
+    targetNumberDisplay.innerText = '?';
+    guessButton.innerText = 'Make a Guess';
+    humanGuessInput.value = '';
+    computerGuessDisplay.innerText = '?';
+    computerWinsDisplay.innerText = '';
+  } else {
+    continueGame(currentHumanGuess, computerGuess, target);
+  }
+});   
+
+//Continue game after targets and guesses have been set
+function continueGame(currentHumanGuess, computerGuess, target){
+    // Display the computer guess and the target
   computerGuessDisplay.innerText = computerGuess;
   targetNumberDisplay.innerText = target;
   
@@ -49,7 +64,7 @@ guessButton.addEventListener('click', () => {
   // Set the correct disabled state for the buttons
   guessButton.setAttribute('disabled', true)
   nextRoundButton.removeAttribute('disabled');
-});
+}
 
 nextRoundButton.addEventListener('click', () => {
   // Increase the round number
